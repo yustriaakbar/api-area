@@ -1,0 +1,674 @@
+{
+	"info": {
+		"_postman_id": "8a4b01be-dd69-4a31-8c5e-b3dd98141e57",
+		"name": "Area NodeJS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17674962"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"accessToken\", response.accessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"admin@gmail.com\",\r\n    \"password\" : \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/api/login",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"admin@gmail.com\",\r\n    \"password\" : \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "197"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c5-TeeDUPXiz3RMv/zzHfdsd13hB20\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 May 2022 21:41:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"auth\": true,\n    \"accessToken\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM1MTQ4ODYsImV4cCI6MTY1MzYwMTI4Nn0.WfFUvr-BHTGpm1vxtXNqQhPWZfo6PMkq0EIPHCfRVkE\",\n    \"message\": \"Error\",\n    \"errors\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Provinsi",
+			"item": [
+				{
+					"name": "List Provinsi",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/api/provinsi",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"provinsi"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Provinsi",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-url}}/api/provinsi",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"api",
+										"provinsi"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1193"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a9-MsbNSyLDk2hYeSUqQNRhrFBFZKM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Jul 2022 06:49:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"data\": [\n        {\n            \"id\": \"11\",\n            \"nama\": \"ACEH\"\n        },\n        {\n            \"id\": \"12\",\n            \"nama\": \"SUMATERA UTARA\"\n        },\n        {\n            \"id\": \"13\",\n            \"nama\": \"SUMATERA BARAT\"\n        },\n        {\n            \"id\": \"14\",\n            \"nama\": \"RIAU\"\n        },\n        {\n            \"id\": \"15\",\n            \"nama\": \"JAMBI\"\n        },\n        {\n            \"id\": \"16\",\n            \"nama\": \"SUMATERA SELATAN\"\n        },\n        {\n            \"id\": \"17\",\n            \"nama\": \"BENGKULU\"\n        },\n        {\n            \"id\": \"18\",\n            \"nama\": \"LAMPUNG\"\n        },\n        {\n            \"id\": \"19\",\n            \"nama\": \"KEPULAUAN BANGKA BELITUNG\"\n        },\n        {\n            \"id\": \"21\",\n            \"nama\": \"KEPULAUAN RIAU\"\n        },\n        {\n            \"id\": \"31\",\n            \"nama\": \"DKI JAKARTA\"\n        },\n        {\n            \"id\": \"32\",\n            \"nama\": \"JAWA BARAT\"\n        },\n        {\n            \"id\": \"33\",\n            \"nama\": \"JAWA TENGAH\"\n        },\n        {\n            \"id\": \"34\",\n            \"nama\": \"DI YOGYAKARTA\"\n        },\n        {\n            \"id\": \"35\",\n            \"nama\": \"JAWA TIMUR\"\n        },\n        {\n            \"id\": \"36\",\n            \"nama\": \"BANTEN\"\n        },\n        {\n            \"id\": \"51\",\n            \"nama\": \"BALI\"\n        },\n        {\n            \"id\": \"52\",\n            \"nama\": \"NUSA TENGGARA BARAT\"\n        },\n        {\n            \"id\": \"53\",\n            \"nama\": \"NUSA TENGGARA TIMUR\"\n        },\n        {\n            \"id\": \"61\",\n            \"nama\": \"KALIMANTAN BARAT\"\n        },\n        {\n            \"id\": \"62\",\n            \"nama\": \"KALIMANTAN TENGAH\"\n        },\n        {\n            \"id\": \"63\",\n            \"nama\": \"KALIMANTAN SELATAN\"\n        },\n        {\n            \"id\": \"64\",\n            \"nama\": \"KALIMANTAN TIMUR\"\n        },\n        {\n            \"id\": \"65\",\n            \"nama\": \"KALIMANTAN UTARA\"\n        },\n        {\n            \"id\": \"71\",\n            \"nama\": \"SULAWESI UTARA\"\n        },\n        {\n            \"id\": \"72\",\n            \"nama\": \"SULAWESI TENGAH\"\n        },\n        {\n            \"id\": \"73\",\n            \"nama\": \"SULAWESI SELATAN\"\n        },\n        {\n            \"id\": \"74\",\n            \"nama\": \"SULAWESI TENGGARA\"\n        },\n        {\n            \"id\": \"75\",\n            \"nama\": \"GORONTALO\"\n        },\n        {\n            \"id\": \"76\",\n            \"nama\": \"SULAWESI BARAT\"\n        },\n        {\n            \"id\": \"81\",\n            \"nama\": \"MALUKU\"\n        },\n        {\n            \"id\": \"82\",\n            \"nama\": \"MALUKU UTARA\"\n        },\n        {\n            \"id\": \"91\",\n            \"nama\": \"PAPUA BARAT\"\n        },\n        {\n            \"id\": \"94\",\n            \"nama\": \"PAPUA\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "List Provinsi By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"provinsi_id\" : \"11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/api/provinsi",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"provinsi"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Provinsi By Id",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"provinsi_id\" : \"11\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/api/provinsi",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"api",
+										"provinsi"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-Gn0um1uDrTxFCn52LRQrMbtQK/Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Jul 2022 15:41:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"data\": [\n        {\n            \"id\": \"11\",\n            \"nama\": \"ACEH\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Kota",
+			"item": [
+				{
+					"name": "List Kota By Provinsi Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"provinsi_id\" : \"11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/api/kota",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"kota"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Kota By Provinsi Id",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"provinsi_id\" : \"11\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/api/kota",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"api",
+										"kota"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1453"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5ad-geYMR3lMt4ELnZcdHU1H1b33f4k\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Jul 2022 15:41:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"data\": [\n        {\n            \"id\": \"1101\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN SIMEULUE\"\n        },\n        {\n            \"id\": \"1102\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN ACEH SINGKIL\"\n        },\n        {\n            \"id\": \"1103\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN ACEH SELATAN\"\n        },\n        {\n            \"id\": \"1104\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN ACEH TENGGARA\"\n        },\n        {\n            \"id\": \"1105\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN ACEH TIMUR\"\n        },\n        {\n            \"id\": \"1106\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN ACEH TENGAH\"\n        },\n        {\n            \"id\": \"1107\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN ACEH BARAT\"\n        },\n        {\n            \"id\": \"1108\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN ACEH BESAR\"\n        },\n        {\n            \"id\": \"1109\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN PIDIE\"\n        },\n        {\n            \"id\": \"1110\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN BIREUEN\"\n        },\n        {\n            \"id\": \"1111\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN ACEH UTARA\"\n        },\n        {\n            \"id\": \"1112\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN ACEH BARAT DAYA\"\n        },\n        {\n            \"id\": \"1113\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN GAYO LUES\"\n        },\n        {\n            \"id\": \"1114\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN ACEH TAMIANG\"\n        },\n        {\n            \"id\": \"1115\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN NAGAN RAYA\"\n        },\n        {\n            \"id\": \"1116\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN ACEH JAYA\"\n        },\n        {\n            \"id\": \"1117\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN BENER MERIAH\"\n        },\n        {\n            \"id\": \"1118\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KABUPATEN PIDIE JAYA\"\n        },\n        {\n            \"id\": \"1171\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KOTA BANDA ACEH\"\n        },\n        {\n            \"id\": \"1172\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KOTA SABANG\"\n        },\n        {\n            \"id\": \"1173\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KOTA LANGSA\"\n        },\n        {\n            \"id\": \"1174\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KOTA LHOKSEUMAWE\"\n        },\n        {\n            \"id\": \"1175\",\n            \"provinsi_id\": \"11\",\n            \"nama\": \"KOTA SUBULUSSALAM\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Kecamatan",
+			"item": [
+				{
+					"name": "List Kecamatan By Kota Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"kota_id\" : \"1101\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/api/kecamatan",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"kecamatan"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Kecamatan By Kota Id",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"kota_id\" : \"1101\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/api/kecamatan",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"api",
+										"kecamatan"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "586"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"24a-M0YDsYl4CQF1IFCbW0i08fe63Hc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Jul 2022 15:42:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"data\": [\n        {\n            \"id\": \"1101010\",\n            \"kota_id\": \"1101\",\n            \"nama\": \"TEUPAH SELATAN\"\n        },\n        {\n            \"id\": \"1101020\",\n            \"kota_id\": \"1101\",\n            \"nama\": \"SIMEULUE TIMUR\"\n        },\n        {\n            \"id\": \"1101021\",\n            \"kota_id\": \"1101\",\n            \"nama\": \"TEUPAH BARAT\"\n        },\n        {\n            \"id\": \"1101022\",\n            \"kota_id\": \"1101\",\n            \"nama\": \"TEUPAH TENGAH\"\n        },\n        {\n            \"id\": \"1101030\",\n            \"kota_id\": \"1101\",\n            \"nama\": \"SIMEULUE TENGAH\"\n        },\n        {\n            \"id\": \"1101031\",\n            \"kota_id\": \"1101\",\n            \"nama\": \"TELUK DALAM\"\n        },\n        {\n            \"id\": \"1101032\",\n            \"kota_id\": \"1101\",\n            \"nama\": \"SIMEULUE CUT\"\n        },\n        {\n            \"id\": \"1101040\",\n            \"kota_id\": \"1101\",\n            \"nama\": \"SALANG\"\n        },\n        {\n            \"id\": \"1101050\",\n            \"kota_id\": \"1101\",\n            \"nama\": \"SIMEULUE BARAT\"\n        },\n        {\n            \"id\": \"1101051\",\n            \"kota_id\": \"1101\",\n            \"nama\": \"ALAFAN\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Kelurahan",
+			"item": [
+				{
+					"name": "List Kelurahan By Kecamatan Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"kecamatan_id\" : \"1101010\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/api/kelurahan",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"kelurahan"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Kelurahan By Kecamatan Id",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"kecamatan_id\" : \"1101010\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/api/kelurahan",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"api",
+										"kelurahan"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1276"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4fc-bnB+lJRRyF5nznDch0Ko27D4kgE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Jul 2022 15:42:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"data\": [\n        {\n            \"id\": \"1101010001\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"LATIUNG\"\n        },\n        {\n            \"id\": \"1101010002\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"LABUHAN BAJAU\"\n        },\n        {\n            \"id\": \"1101010003\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"SUAK LAMATAN\"\n        },\n        {\n            \"id\": \"1101010004\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"ANA AO\"\n        },\n        {\n            \"id\": \"1101010005\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"LATALING\"\n        },\n        {\n            \"id\": \"1101010006\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"PULAU BENGKALAK\"\n        },\n        {\n            \"id\": \"1101010007\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"BADEGONG\"\n        },\n        {\n            \"id\": \"1101010008\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"KEBUN BARU\"\n        },\n        {\n            \"id\": \"1101010009\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"ULUL MAYANG\"\n        },\n        {\n            \"id\": \"1101010010\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"PASIR TINGGI\"\n        },\n        {\n            \"id\": \"1101010011\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"LABUHAN JAYA\"\n        },\n        {\n            \"id\": \"1101010012\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"LABUHAN BAKTI\"\n        },\n        {\n            \"id\": \"1101010013\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"BATU RALANG\"\n        },\n        {\n            \"id\": \"1101010014\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"ALUS ALUS\"\n        },\n        {\n            \"id\": \"1101010015\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"SEUNEUBOK\"\n        },\n        {\n            \"id\": \"1101010016\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"BLANG SEBEL\"\n        },\n        {\n            \"id\": \"1101010017\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"TRANS BARU\"\n        },\n        {\n            \"id\": \"1101010018\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"TRANS MERANTI\"\n        },\n        {\n            \"id\": \"1101010019\",\n            \"kecamatan_id\": \"1101010\",\n            \"nama\": \"TRANS JERNGE\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
